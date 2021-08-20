@@ -1,0 +1,18 @@
+load("@rules_python//python:defs.bzl", "py_binary")
+load("@io_bazel_rules_docker//python3:image.bzl", "py3_image")
+
+package(default_visibility = ["//visibility:public"])
+
+py3_image(
+    name = "hello",
+    srcs = [
+        "hello.py",
+    ],
+    base = "@python38_base_image//image",
+    main = "hello.py",
+
+    # Currently needs to be built on Linux.
+    target_compatible_with = [
+        "@platforms//os:linux",
+    ],
+)
