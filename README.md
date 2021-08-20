@@ -5,3 +5,8 @@ This tiny example uses Bazel to build a Docker image on top of a Nix-built base 
 ```shell
 bazel run //:hello
 ```
+
+Afterwards you can inspect the container with
+```shell
+docker run -it --entrypoint /bin/bash bazel:hello
+```
