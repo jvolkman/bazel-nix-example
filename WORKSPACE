@@ -15,12 +15,16 @@ load("@io_tweag_rules_nixpkgs//nixpkgs:repositories.bzl", "rules_nixpkgs_depende
 
 rules_nixpkgs_dependencies()
 
-load("@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl", "nixpkgs_git_repository", "nixpkgs_package")
+load("@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl", "nixpkgs_git_repository", "nixpkgs_package", "nixpkgs_python_configure")
 
 nixpkgs_git_repository(
     name = "nixpkgs",
     revision = "21.05",  # Any tag or commit hash
     sha256 = "",  # optional sha to verify package integrity!
+)
+
+nixpkgs_python_configure(
+    repository = "@nixpkgs//:default.nix",
 )
 
 ######################
