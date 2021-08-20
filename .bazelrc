@@ -1,0 +1,2 @@
+build --host_platform=@io_tweag_rules_nixpkgs//nixpkgs/platforms:host
+build --extra_execution_platforms=@io_tweag_rules_nixpkgs//nixpkgs/platforms:host
